@@ -62,7 +62,7 @@ const TelegramNotifier: React.FC = () => {
   useEffect(() => {
     const checkBackendStatus = async () => {
       try {
-        const response = await fetch("https://51217fce-8f72-45eb-948a-ae503f979927.e1-us-east-azure.choreoapps.dev/api/health");
+        const response = await fetch("https://e03cc376-f1c1-4fb9-b782-38e312bf76f0.e1-us-east-azure.choreoapps.dev/api/health");
         if (response.ok) {
           const data = await response.json();
           setIsBackendOnline(data.status === 'healthy');
@@ -145,7 +145,7 @@ const TelegramNotifier: React.FC = () => {
   // Test bot token validity
   const testBotToken = async (token: string): Promise<boolean> => {
     try {
-      const response = await fetch("https://51217fce-8f72-45eb-948a-ae503f979927.e1-us-east-azure.choreoapps.dev/api/test-notification", {
+      const response = await fetch("https://e03cc376-f1c1-4fb9-b782-38e312bf76f0.e1-us-east-azure.choreoapps.dev/api/test-notification", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
@@ -205,7 +205,7 @@ const TelegramNotifier: React.FC = () => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
 
-      const res = await fetch("https://51217fce-8f72-45eb-948a-ae503f979927.e1-us-east-azure.choreoapps.dev/api/send-notification", {
+      const res = await fetch("https://e03cc376-f1c1-4fb9-b782-38e312bf76f0.e1-us-east-azure.choreoapps.dev/api/send-notification", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
